@@ -9,7 +9,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
-Responsive Simple Beautiful Effective Flexible Testimonial Plugin
+Facebook Widget For WordPress
 
 == Description ==
 
