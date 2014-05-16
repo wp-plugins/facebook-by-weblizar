@@ -9,8 +9,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
-Responsive Simple Beautiful Effective Flexible Testimonial Plugin
-
+Facebook Widget For WordPress
 == Description ==
 
 Facebook by [Weblizar](http://www.weblizar.com/) plugin is very simple and easy facebook widget plugin to display your facebook page live stream & friends on WordPress blog.
