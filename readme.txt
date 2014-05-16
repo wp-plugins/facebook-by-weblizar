@@ -15,7 +15,7 @@ Responsive Simple Beautiful Effective Flexible Testimonial Plugin
 
 Facebook by [Weblizar](http://www.weblizar.com/) plugin is very simple and easy facebook widget plugin to display your facebook page live stream & friends on WordPress blog.
 
-Using **[Facebook By Weblizar]** facebook widget publish your facbook page post & show your facebook page fans.
+Using **[Facebook By Weblizar]** facebook widget publish your facebook page post & show your facebook page fans.
 
 
 == Features ==
