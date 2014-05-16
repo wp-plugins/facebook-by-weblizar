@@ -1,7 +1,7 @@
 === Facebook By Weblizar ===
 Contributors: weblizar
 Donate link: http://www.weblizar.com/
-Tags: facebook, facebook like, facebook widget, facebook page
+Tags: facebook, facebook like, facebook widget, facebook page, facebook share, facebook share button, Like, like button, Share, share button, facebook fanbox, facebook page, page, plugin, posts, publish Facebook, sidebar, social, Social Plugins, facebook embed, facebook events, Facebook feed, Like Button Widget,
 Requires at least: 3.0
 Tested up to: 3.9.1
 Stable tag: 0.1
