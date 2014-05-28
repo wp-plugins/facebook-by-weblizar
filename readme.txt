@@ -10,12 +10,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 
 Facebook Widget For WordPress
-
 == Description ==
 
 Facebook by [Weblizar](http://www.weblizar.com/) plugin is very simple and easy facebook widget plugin to display your facebook page live stream & friends on WordPress blog.
 
-Using **[Facebook By Weblizar]** facebook widget publish your facbook page post & show your facebook page fans.
+Using **Facebook By Weblizar** facebook widget publish your facbook page post & show your facebook page fans.
 
 
 == Features ==
@@ -58,7 +57,7 @@ Please use WordPress support forum to ask any query regarding any issue.
 
 == Changelog ==
 
-For more information, see Weblizar(http://wwww.weblizar.com/plugins/).
+For more information, see Weblizar(http://wwww.weblizar.com/).
 
 = 0.1 =
 
