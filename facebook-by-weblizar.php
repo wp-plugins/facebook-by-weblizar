@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Facebook By WebLizar
- * Version: 0.1
+ * Version: 0.2
  * Description: Display your facebook page live stream & friends on WordPress blog.
  * Author: WebLizar
  * Author URI: http://www.weblizar.com
@@ -73,6 +73,24 @@ class WeblizarFacebook extends WP_Widget {
             echo $args['before_title'] . $Title . $args['after_title'];
             //echo __( 'Hello, World!', 'text_domain' );
         ?>
+		<style>
+		@media (max-width:767px) 
+		{
+			.fb_iframe_widget {
+			width: 100%;
+			}
+			.fb_iframe_widget span {
+			width: 100% !important;
+			}
+			.fb_iframe_widget iframe {
+			width: 100% !important;
+			}
+			._8r {
+			margin-right: 5px;
+			margin-top: -4px !important;
+			}
+		}
+		</style>
         <div id="fb-root"></div>
         <script>(function(d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
