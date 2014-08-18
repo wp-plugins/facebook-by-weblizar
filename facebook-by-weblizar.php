@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Facebook By WebLizar
- * Version: 0.4
+ * Version: 0.5
  * Description: Display your facebook page live stream & friends on WordPress blog.
  * Author: WebLizar
  * Author URI: http://www.weblizar.com
@@ -202,7 +202,7 @@ class WeblizarFacebook extends WP_Widget {
         <p>
             <label for="<?php echo $this->get_field_id( 'FbAppId' ); ?>"><?php _e( 'Facebook App ID' ); ?> (<?php _e("Required",WEBLIZAR_FACEBOOK_TEXT_DOMAIN); ?>)</label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'FbAppId' ); ?>" name="<?php echo $this->get_field_name( 'FbAppId' ); ?>" type="text" value="<?php echo esc_attr( $FbAppId ); ?>">
-            <?php _e("Get Your Facebook App. Id",WEBLIZAR_FACEBOOK_TEXT_DOMAIN); ?>: <a href="https://help.yahoo.com/kb/yahoo-merchant-solutions/facebook-application-sln18861.html" target="_blank">HERE</a>
+            <?php _e("Get Your Facebook App. Id",WEBLIZAR_FACEBOOK_TEXT_DOMAIN); ?>: <a href="http://weblizar.com/get-facebook-app-id/" target="_blank">HERE</a>
         </p>
 
         <?php
