@@ -3,8 +3,8 @@ Contributors: weblizar
 Donate link: http://www.weblizar.com/
 Tags: facebook, facebook like, facebook widget, facebook page, facebook share, facebook share button, Like, like button, Share, share button, facebook fanbox, facebook page, page, plugin, posts, publish Facebook, sidebar, social, Social Plugins, facebook embed, facebook events, Facebook feed, Like Button Widget,wall, facebook wall, facebook photos, share, tweets, facebook share, facebook news, news, feeds
 Requires at least: 3.0
-Tested up to: 3.9.1
-Stable tag: 0.5
+Tested up to: 4.0
+Stable tag: 0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -73,10 +73,15 @@ Please use WordPress support forum to ask any query regarding any issue.
 
 For more information, see Weblizar(http://wwww.weblizar.com/).
 
+= 0.6 =
+
+* Compatible with WordPress 4.0
+
 = 0.5 =
 
 * Update Facebook App id link
 * Remove small script error
+
 
 = 0.4 =
 
