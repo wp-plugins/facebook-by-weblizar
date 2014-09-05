@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Facebook By WebLizar
- * Version: 0.6
+ * Version: 0.7
  * Description: Display your facebook page live stream & friends on WordPress blog.
  * Author: WebLizar
  * Author URI: http://www.weblizar.com
