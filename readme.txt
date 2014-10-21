@@ -8,32 +8,42 @@ Stable tag: 0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
+Facebook By Weblizar is Facebook Like Box plugin comes with Facebook Like Box Widget & Shortcode.
 
-Facebook Widget for add latest Facebok Feeds of any public facebook page to your site.
 == Description ==
 
 Facebook by [Weblizar](http://www.weblizar.com/) plugin is very simple and easy facebook widget plugin to display your facebook page live stream & friends on WordPress blog.
 
 Using **Facebook By Weblizar** facebook widget publish your facbook page post & show your facebook page fans.
 
-### The features of the Plugin
+Using **[FBW]** shortcode you can publish your facbook like page on any Page or Post.
 
-* Facebook Widget
-* Facebook Widget Settings
+Check screentshots section.
+
+### Features Of Plugin
+
+* Facebook Page Like Box Widget
+* Facebook Page Like Box Widget Settings
+* Facebook Page Like Box Shortcode
+* Facebook Page Like Box Shortcode Settings
+* Individual Widget & Shortcode Settings
 * Facebook Page Like Button
 * Facebook Page Live Stream
 * Facebook Page Fan Faces
 * Facebook Page Border Option
 * Facebook Page Custom Height & Width Option
-* Mobile device compatible
-* All browser support
-* Responsive facebook wall
-* latest feed displays
-* Display page fans or users
+* Compatible With All Mobile Tablets Device 
+* All Browser Support
+* Responsive Facebook Wall
+* Latest Facebook Wall Feeds Displays
+* Display Fans Page OR Users
 
 == Features ==
 * Facebook Widget
 * Facebook Widget Settings
+* Facebook Page Like Box Shortcode
+* Facebook Page Like Box Shortcode Settings
+* Individual Widget & Shortcode Settings
 * Facebook Page Like Button
 * Facebook Page Live Stream
 * Facebook Page Fan Faces
@@ -65,23 +75,27 @@ Please use WordPress support forum to ask any query regarding any issue.
 
 == Screenshots ==
 
-1. Facebook Widget Preview
-2. Facebook Widget Settings
-3. Facebook Widget Preview On Site
+1. Facebook Page Like Box Widget Preview
+2. Facebook Page Like Box Widget Settings
+3. Facebook Page Like Box Widget Preview On Site
+4. Facebook Page Like Box Shortcode Preview On Page
 
 == Changelog ==
 
 For more information, see Weblizar(http://wwww.weblizar.com/).
 
-= 0.6 =
+= 0.7 = 05/09/2014
+* New: [FBW] shortcode added
+* New: Fan Faces Hide & Show Option
+* New: Translation Ready With .po & .mo File
 
-* Compatible with WordPress 4.0
+= 0.6 = 20/08/2014
+* New: Compatible with WordPress 4.0
 
 = 0.5 =
 
 * Update Facebook App id link
 * Remove small script error
-
 
 = 0.4 =
 

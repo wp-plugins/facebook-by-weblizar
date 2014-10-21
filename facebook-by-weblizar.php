@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Facebook By WebLizar
- * Version: 0.7
+ * Version: 0.8
  * Description: Display your facebook page live stream & friends on WordPress blog.
  * Author: WebLizar
  * Author URI: http://www.weblizar.com
@@ -26,25 +26,30 @@
  * Constant Values & Variables
  */
 define("WEBLIZAR_FACEBOOK_PLUGIN_URL", plugin_dir_url(__FILE__));
-define("WEBLIZAR_FACEBOOK_TEXT_DOMAIN", "weblizar_facebook");
+define("WEBLIZAR_FACEBOOK_TEXT_DOMAIN", "wl_facebook");
 
 /**
- * Widget Code
+ * Get Ready Plugin Translation
  */
+add_action('plugins_loaded', 'FacebookTranslation');
+function FacebookTranslation() {
+	load_plugin_textdomain( WEBLIZAR_FACEBOOK_TEXT_DOMAIN, FALSE, dirname( plugin_basename(__FILE__)).'/lang/' );
+}
 
 /**
- * Adds WeblizarFacebook widget.
+ * Adds WeblizarFacebook Widget
  */
 class WeblizarFacebook extends WP_Widget {
 
     /**
-     * Register widget with WordPress.
+     * Register widget with WordPress
      */
     function __construct() {
+		add_action('plugins_loaded', 'GetReadyFacebookTranslation');
         parent::__construct(
-            'weblizar_facebook', // Base ID
+            'weblizar_facebook_likebox', // Base ID
             'Facebook By WebLizar', // Widget Name
-            array( 'description' => __( 'Display latest tweets from your Twitter account', WEBLIZAR_FACEBOOK_TEXT_DOMAIN ), ) // Args
+            array( 'description' => __( 'Display Facebook Page Live Stream & Fans', WEBLIZAR_FACEBOOK_TEXT_DOMAIN ), ) // Args
         );
     }
 
@@ -68,26 +73,22 @@ class WeblizarFacebook extends WP_Widget {
         $Stream = apply_filters( 'facebook_stream', $instance['Stream'] );
         $Width = apply_filters( 'facebook_width', $instance['Width'] );
 
-        //echo $args['before_widget'];
         if ( ! empty( $Title ) )
-            echo $args['before_title'] . $Title . $args['after_title'];
-            //echo __( 'Hello, World!', 'text_domain' );
-        ?>
+            echo $args['before_title'] . $Title . $args['after_title']; ?>
 		<style>
-		@media (max-width:767px) 
-		{
+		@media (max-width:767px) {
 			.fb_iframe_widget {
-			width: 100%;
+				width: 100%;
 			}
 			.fb_iframe_widget span {
-			width: 100% !important;
+				width: 100% !important;
 			}
 			.fb_iframe_widget iframe {
-			width: 100% !important;
+				width: 100% !important;
 			}
 			._8r {
-			margin-right: 5px;
-			margin-top: -4px !important;
+				margin-right: 5px;
+				margin-top: -4px !important;
 			}
 		}
 		</style>
@@ -100,10 +101,9 @@ class WeblizarFacebook extends WP_Widget {
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         </script>
-        <div class="fb-like-box" colorscheme="<?php echo $ColorScheme; ?>" data-header="<?php echo $Header; ?>" data-height="<?php echo $Height; ?>" data-href="<?php echo $FacebookPageURL; ?>" data-show-border="<?php echo $ShowBorder; ?>" data-show-faces="<?php echo $ShowFaces; ?>" data-stream="<?php echo $Stream; ?>" data-width="<?php echo $Width; ?>" data-force-wall="<?php echo $ForceWall; ?>"></div>
+        <div class="fb-like-box" style="background-color: auto;" colorscheme="<?php echo $ColorScheme; ?>" data-header="<?php echo $Header; ?>" data-height="<?php echo $Height; ?>" data-href="<?php echo $FacebookPageURL; ?>" data-show-border="<?php echo $ShowBorder; ?>" data-show-faces="<?php echo $ShowFaces; ?>" data-stream="<?php echo $Stream; ?>" data-width="<?php echo $Width; ?>" data-force-wall="<?php echo $ForceWall; ?>"></div>
 
         <?php
-        //echo $args['after_widget'];
     }
 
     /**
@@ -116,91 +116,98 @@ class WeblizarFacebook extends WP_Widget {
     public function form( $instance ) {
 
         //default values & Submitted Values
-        $ColorScheme = __( 'lite', WEBLIZAR_FACEBOOK_TEXT_DOMAIN );
+        $ColorScheme = 'lite';
         if ( isset( $instance[ 'ColorScheme' ] ) ) {
             $ColorScheme = $instance[ 'ColorScheme' ];
         }
 
-        $ForceWall = __( 'false', WEBLIZAR_FACEBOOK_TEXT_DOMAIN );
+        $ForceWall = 'false';
         if ( isset( $instance[ 'ForceWall' ] ) ) {
             $ForceWall = $instance[ 'ForceWall' ];
         }
 
-        $Header = __( 'true', WEBLIZAR_FACEBOOK_TEXT_DOMAIN );
+        $Header = 'true';
         if ( isset( $instance[ 'Header' ] ) ) {
             $Header = $instance[ 'Header' ];
         }
 
-        $Height = __( '556', WEBLIZAR_FACEBOOK_TEXT_DOMAIN );
+        $Height = 560;
         if ( isset( $instance[ 'Height' ] ) ) {
             $Height = $instance[ 'Height' ];
         }
 
-        $FacebookPageURL = __( 'https://www.facebook.com/FacebookDevelopers', WEBLIZAR_FACEBOOK_TEXT_DOMAIN );
+        $FacebookPageURL = 'https://www.facebook.com/pages/Weblizar/1440510482872657';
         if ( isset( $instance[ 'FacebookPageURL' ] ) ) {
             $FacebookPageURL = $instance[ 'FacebookPageURL' ];
         }
 
-        $ShowBorder = __( 'true', WEBLIZAR_FACEBOOK_TEXT_DOMAIN );
+        $ShowBorder = 'true';
         if ( isset( $instance[ 'ShowBorder' ] ) ) {
             $ShowBorder = $instance[ 'ShowBorder' ];
         }
 
-        $ShowFaces = __( 'true', WEBLIZAR_FACEBOOK_TEXT_DOMAIN );
+        $ShowFaces = 'true';
         if ( isset( $instance[ 'ShowFaces' ] ) ) {
             $ShowFaces = $instance[ 'ShowFaces' ];
         }
 
-        $Stream = __( 'true', WEBLIZAR_FACEBOOK_TEXT_DOMAIN );
+        $Stream = 'true';
         if ( isset( $instance[ 'Stream' ] ) ) {
             $Stream = $instance[ 'Stream' ];
         }
 
-        $Width = __( '292', WEBLIZAR_FACEBOOK_TEXT_DOMAIN );
+        $Width = 292;
         if ( isset( $instance[ 'Width' ] ) ) {
             $Width = $instance[ 'Width' ];
         }
 
-        $FbAppId = __( '488390501239538', WEBLIZAR_FACEBOOK_TEXT_DOMAIN );
+        $FbAppId = '488390501239538';
         if ( isset( $instance[ 'FbAppId' ] ) ) {
             $FbAppId = $instance[ 'FbAppId' ];
         }
         ?>
         <p>
-            <label for="<?php echo $this->get_field_id( 'FacebookPageURL' ); ?>"><?php _e( 'Facebook Page URL' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'FacebookPageURL' ); ?>"><?php _e( 'Facebook Page URL', WEBLIZAR_FACEBOOK_TEXT_DOMAIN ); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'FacebookPageURL' ); ?>" name="<?php echo $this->get_field_name( 'FacebookPageURL' ); ?>" type="text" value="<?php echo esc_attr( $FacebookPageURL ); ?>">
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'ColorScheme' ); ?>"><?php _e( 'Widget Color Scheme' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'ColorScheme' ); ?>"><?php _e( 'Widget Color Scheme', WEBLIZAR_FACEBOOK_TEXT_DOMAIN ); ?></label>
             <select id="<?php echo $this->get_field_id( 'ColorScheme' ); ?>" name="<?php echo $this->get_field_name( 'ColorScheme' ); ?>">
                 <option value="light" <?php if($ColorScheme == "light") echo "selected=selected" ?>>Light Color Theme</option>
                 <option value="dark" <?php if($ColorScheme == "dark") echo "selected=selected" ?>>Dark Color Theme</option>
             </select>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'Header' ); ?>"><?php _e( 'Show Widget Header' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'Header' ); ?>"><?php _e( 'Show Widget Header', WEBLIZAR_FACEBOOK_TEXT_DOMAIN ); ?></label>
             <select id="<?php echo $this->get_field_id( 'Header' ); ?>" name="<?php echo $this->get_field_name( 'Header' ); ?>">
                 <option value="true" <?php if($Header == "true") echo "selected=selected" ?>>Yes</option>
                 <option value="false" <?php if($Header == "false") echo "selected=selected" ?>>No</option>
             </select>
         </p>
+		<p>
+            <label for="<?php echo $this->get_field_id( 'ShowFaces' ); ?>"><?php _e( 'Show Faces', WEBLIZAR_FACEBOOK_TEXT_DOMAIN ); ?></label>
+            <select id="<?php echo $this->get_field_id( 'ShowFaces' ); ?>" name="<?php echo $this->get_field_name( 'ShowFaces' ); ?>">
+                <option value="true" <?php if($ShowFaces == "true") echo "selected=selected" ?>>Yes</option>
+                <option value="false" <?php if($ShowFaces == "false") echo "selected=selected" ?>>No</option>
+            </select>
+        </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'Stream' ); ?>"><?php _e( 'Show Live Stream' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'Stream' ); ?>"><?php _e( 'Show Live Stream', WEBLIZAR_FACEBOOK_TEXT_DOMAIN ); ?></label>
             <select id="<?php echo $this->get_field_id( 'Stream' ); ?>" name="<?php echo $this->get_field_name( 'Stream' ); ?>">
                 <option value="true" <?php if($Stream == "true") echo "selected=selected" ?>>Yes</option>
                 <option value="false" <?php if($Stream == "false") echo "selected=selected" ?>>No</option>
             </select>
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'Width' ); ?>"><?php _e( 'Widget Width' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'Width' ); ?>"><?php _e( 'Widget Width', WEBLIZAR_FACEBOOK_TEXT_DOMAIN ); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'Width' ); ?>" name="<?php echo $this->get_field_name( 'Width' ); ?>" type="text" value="<?php echo esc_attr( $Width ); ?>">
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'Height' ); ?>"><?php _e( 'Widget Height' ); ?></label>
+            <label for="<?php echo $this->get_field_id( 'Height' ); ?>"><?php _e( 'Widget Height', WEBLIZAR_FACEBOOK_TEXT_DOMAIN ); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'Height' ); ?>" name="<?php echo $this->get_field_name( 'Height' ); ?>" type="text" value="<?php echo esc_attr( $Height ); ?>">
         </p>
         <p>
-            <label for="<?php echo $this->get_field_id( 'FbAppId' ); ?>"><?php _e( 'Facebook App ID' ); ?> (<?php _e("Required",WEBLIZAR_FACEBOOK_TEXT_DOMAIN); ?>)</label>
+            <label for="<?php echo $this->get_field_id( 'FbAppId' ); ?>"><?php _e( 'Facebook App ID', WEBLIZAR_FACEBOOK_TEXT_DOMAIN ); ?> (<?php _e("Required",WEBLIZAR_FACEBOOK_TEXT_DOMAIN); ?>)</label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'FbAppId' ); ?>" name="<?php echo $this->get_field_name( 'FbAppId' ); ?>" type="text" value="<?php echo esc_attr( $FbAppId ); ?>">
             <?php _e("Get Your Facebook App. Id",WEBLIZAR_FACEBOOK_TEXT_DOMAIN); ?>: <a href="http://weblizar.com/get-facebook-app-id/" target="_blank">HERE</a>
         </p>
@@ -220,17 +227,16 @@ class WeblizarFacebook extends WP_Widget {
      */
     public function update( $new_instance, $old_instance ) {
         $instance = array();
-        $instance['FacebookPageURL'] = ( ! empty( $new_instance['FacebookPageURL'] ) ) ? strip_tags( $new_instance['FacebookPageURL'] ) : 'https://www.facebook.com/pages/Web-Lizar/1416569958601479';
+        $instance['FacebookPageURL'] = ( ! empty( $new_instance['FacebookPageURL'] ) ) ? strip_tags( $new_instance['FacebookPageURL'] ) : 'https://www.facebook.com/pages/Weblizar/1440510482872657';
         $instance['ColorScheme'] = ( ! empty( $new_instance['ColorScheme'] ) ) ? strip_tags( $new_instance['ColorScheme'] ) : 'light';
         $instance['Header'] = ( ! empty( $new_instance['Header'] ) ) ? strip_tags( $new_instance['Header'] ) : 'true';
         $instance['Width'] = ( ! empty( $new_instance['Width'] ) ) ? strip_tags( $new_instance['Width'] ) : '292';
-        $instance['Height'] = ( ! empty( $new_instance['Height'] ) ) ? strip_tags( $new_instance['Height'] ) : '556';
+        $instance['Height'] = ( ! empty( $new_instance['Height'] ) ) ? strip_tags( $new_instance['Height'] ) : '560';
         $instance['Stream'] = ( ! empty( $new_instance['Stream'] ) ) ? strip_tags( $new_instance['Stream'] ) : 'true';
         $instance['ShowFaces'] = ( ! empty( $new_instance['ShowFaces'] ) ) ? strip_tags( $new_instance['ShowFaces'] ) : 'true';
         $instance['ShowBorder'] = ( ! empty( $new_instance['ShowBorder'] ) ) ? strip_tags( $new_instance['ShowBorder'] ) : 'true';
         $instance['ForceWall'] = ( ! empty( $new_instance['ForceWall'] ) ) ? strip_tags( $new_instance['ForceWall'] ) : 'false';
         $instance['FbAppId'] = ( ! empty( $new_instance['FbAppId'] ) ) ? strip_tags( $new_instance['FbAppId'] ) : '488390501239538';
-
         return $instance;
     }
 
@@ -241,4 +247,30 @@ function WeblizarFacebookWidget() {
     register_widget( 'WeblizarFacebook' );
 }
 add_action( 'widgets_init', 'WeblizarFacebookWidget' );
+
+/**
+ * Facebook By Weblizar Menu
+ */
+add_action('admin_menu','WeblizarFacebookMenu');
+function WeblizarFacebookMenu() {
+    $AdminMenu = add_menu_page( 'Facebook By Weblizar', 'Facebook By Weblizar', 'administrator', 'facebooky-by-weblizar', 'facebooky_by_weblizar_page_function', 'dashicons-facebook-alt');
+}
+
+function facebooky_by_weblizar_page_function() {
+	wp_enqueue_script('jquery');
+	wp_enqueue_script('bootstrap-min-js', WEBLIZAR_FACEBOOK_PLUGIN_URL.'js/bootstrap.min.js');
+	wp_enqueue_script('weblizar-tab-js', WEBLIZAR_FACEBOOK_PLUGIN_URL .'js/option-js.js',array('jquery', 'media-upload', 'jquery-ui-sortable'));
+	wp_enqueue_style('weblizar-option-style-css', WEBLIZAR_FACEBOOK_PLUGIN_URL .'css/weblizar-option-style.css');
+	wp_enqueue_style('op-bootstrap-css', WEBLIZAR_FACEBOOK_PLUGIN_URL. 'css/bootstrap.min.css');
+	wp_enqueue_style('weblizar-bootstrap-responsive-google', WEBLIZAR_FACEBOOK_PLUGIN_URL .'css/bootstrap-responsive.css');
+	wp_enqueue_style('font-awesome-min-css', WEBLIZAR_FACEBOOK_PLUGIN_URL.'css/font-awesome-latest/css/font-awesome.min.css');
+	wp_enqueue_style('Respo-pricing-table-css', WEBLIZAR_FACEBOOK_PLUGIN_URL .'css/pricing-table-responsive.css');
+	wp_enqueue_style('pricing-table-css', WEBLIZAR_FACEBOOK_PLUGIN_URL .'css/pricing-table.css');
+	require_once("facebook-by-weblizar-help.php");
+}
+
+/**
+ * Load Facebook Like Box Shortcode
+ */
+	require_once("facebook-by-weblizar-short-code.php");
 ?>
