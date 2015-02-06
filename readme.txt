@@ -1,10 +1,10 @@
-=== Facebook By Weblizar ===
+=== Facebook ===
 Contributors: weblizar
 Donate link: http://www.weblizar.com/
 Tags: facebook, facebook like, facebook widget, facebook page, facebook share, facebook share button, Like, like button, Share, share button, facebook fanbox, facebook page, page, plugin, posts, publish Facebook, sidebar, social, Social Plugins, facebook embed, facebook events, Facebook feed, Like Button Widget,wall, facebook wall, facebook photos, share, tweets, facebook share, facebook news, news, feeds
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,6 +37,10 @@ Check screentshots section.
 * Responsive Facebook Wall
 * Latest Facebook Wall Feeds Displays
 * Display Fans Page OR Users
+
+### Language Contributors
+
+Serbian translation by **[Borisa Djuraskovic](http://www.webhostinghub.com/)**
 
 == Features ==
 * Facebook Widget
@@ -83,6 +87,10 @@ Please use WordPress support forum to ask any query regarding any issue.
 == Changelog ==
 
 For more information, see Weblizar(http://wwww.weblizar.com/).
+
+= 1.1 = 06/02/2015
+* New: Serbian Translation contributed by Borisa Djuraskovic
+
 
 = 1.0 = 17/12/2014
 * Compatible with WordPress 4.1 version
