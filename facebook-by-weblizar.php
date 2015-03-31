@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Facebook By WebLizar
- * Version: 1.1
+ * Version: 1.2
  * Description: Display your facebook page live stream & friends on WordPress blog.
  * Author: WebLizar
  * Author URI: http://www.weblizar.com
@@ -49,6 +49,13 @@ class WeblizarFacebook extends WP_Widget {
      * @param array $instance Saved values from database.
      */
     public function widget( $args, $instance ) {
+		// Outputs the content of the widget
+		extract($args); // Make before_widget, etc available.
+		$title = apply_filters('title', $instance['title']);
+		
+		echo $before_widget;
+		if (!empty($title)) {	echo $before_title . $title . $after_title;	}	
+	
         $FbAppId = apply_filters( 'facebook_app_id', $instance['FbAppId'] );
         $ColorScheme = apply_filters( 'facebook_color_scheme', $instance['ColorScheme'] );
         $ForceWall = apply_filters( 'facebook_force_wall', $instance['ForceWall'] );
@@ -60,8 +67,7 @@ class WeblizarFacebook extends WP_Widget {
         $Stream = apply_filters( 'facebook_stream', $instance['Stream'] );
         $Width = apply_filters( 'facebook_width', $instance['Width'] );
 
-        if ( ! empty( $Title ) )
-            echo $args['before_title'] . $Title . $args['after_title']; ?>
+        ?>
 		<style>
 		@media (max-width:767px) {
 			.fb_iframe_widget {
@@ -79,18 +85,20 @@ class WeblizarFacebook extends WP_Widget {
 			}
 		}
 		</style>
-        <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=<?php echo $FbAppId; ?>&version=v2.0";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        </script>
-        <div class="fb-like-box" style="background-color: auto;" colorscheme="<?php echo $ColorScheme; ?>" data-header="<?php echo $Header; ?>" data-height="<?php echo $Height; ?>" data-href="<?php echo $FacebookPageURL; ?>" data-show-border="<?php echo $ShowBorder; ?>" data-show-faces="<?php echo $ShowFaces; ?>" data-stream="<?php echo $Stream; ?>" data-width="<?php echo $Width; ?>" data-force-wall="<?php echo $ForceWall; ?>"></div>
-
+        <div style="display:block;width:100%;float:left;overflow:hidden;margin-bottom:20px">
+			<div id="fb-root"></div>
+			<script>(function(d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) return;
+					js = d.createElement(s); js.id = id;
+					js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=<?php echo $FbAppId; ?>&version=v2.0";
+					fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));
+			</script>
+			<div class="fb-like-box" style="background-color: auto;" colorscheme="<?php echo $ColorScheme; ?>" data-header="<?php echo $Header; ?>" data-height="<?php echo $Height; ?>" data-href="<?php echo $FacebookPageURL; ?>" data-show-border="<?php echo $ShowBorder; ?>" data-show-faces="<?php echo $ShowFaces; ?>" data-stream="<?php echo $Stream; ?>" data-width="<?php echo $Width; ?>" data-force-wall="<?php echo $ForceWall; ?>"></div>
+		</div>
         <?php
+		echo $after_widget;
     }
 
     /**
@@ -152,7 +160,18 @@ class WeblizarFacebook extends WP_Widget {
         if ( isset( $instance[ 'FbAppId' ] ) ) {
             $FbAppId = $instance[ 'FbAppId' ];
         }
-        ?>
+        
+		if ( isset( $instance[ 'title' ] ) ) {
+			 $title = $instance[ 'title' ];
+		}
+		else {
+			 $title = __( 'LikeBox', 'WEBLIZAR_FACEBOOK_TEXT_DOMAIN' );
+		}
+		?>
+		<p>
+		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label> 
+		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
+		</p>
         <p>
             <label for="<?php echo $this->get_field_id( 'FacebookPageURL' ); ?>"><?php _e( 'Facebook Page URL', WEBLIZAR_FACEBOOK_TEXT_DOMAIN ); ?></label>
             <input class="widefat" id="<?php echo $this->get_field_id( 'FacebookPageURL' ); ?>" name="<?php echo $this->get_field_name( 'FacebookPageURL' ); ?>" type="text" value="<?php echo esc_attr( $FacebookPageURL ); ?>">
@@ -214,6 +233,7 @@ class WeblizarFacebook extends WP_Widget {
      */
     public function update( $new_instance, $old_instance ) {
         $instance = array();
+        $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : 'Tweets';
         $instance['FacebookPageURL'] = ( ! empty( $new_instance['FacebookPageURL'] ) ) ? strip_tags( $new_instance['FacebookPageURL'] ) : 'https://www.facebook.com/pages/Weblizar/1440510482872657';
         $instance['ColorScheme'] = ( ! empty( $new_instance['ColorScheme'] ) ) ? strip_tags( $new_instance['ColorScheme'] ) : 'light';
         $instance['Header'] = ( ! empty( $new_instance['Header'] ) ) ? strip_tags( $new_instance['Header'] ) : 'true';
