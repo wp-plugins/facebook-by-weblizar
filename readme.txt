@@ -86,33 +86,33 @@ Please use WordPress support forum to ask any query regarding any issue.
 
 == Changelog ==
 
-For more information, see Weblizar(http://wwww.weblizar.com/).
+For more information, see [Weblizar](http://wwww.weblizar.com/) .
 
-= 1.2 = 31/03/2015
+= 1.2 31/03/2015 = 
 * New: Added Widget title for plugin widget
 
-= 1.1 = 06/02/2015
+= 1.1 06/02/2015 = 
 * New: Serbian Translation contributed by Borisa Djuraskovic
 
-= 1.0 = 17/12/2014
+= 1.0 17/12/2014 = 
 * Compatible with WordPress 4.1 version
 * Remove some unused css code from bootstrap.css
 * Update facebook-by-weblizar.php file
 
-= 0.9 = 06/11/2014
+= 0.9 06/11/2014 = 
 * code update
 
-= 0.8 = 27/10/2014
+= 0.8 27/10/2014 = 
 * Remove minor bug 
 * Update css
 
 
-= 0.7 = 05/09/2014
+= 0.7 05/09/2014 = 
 * New: [FBW] shortcode added
 * New: Fan Faces Hide & Show Option
 * New: Translation Ready With .po & .mo File
 
-= 0.6 = 20/08/2014
+= 0.6 20/08/2014 = 
 * New: Compatible with WordPress 4.0
 
 = 0.5 =
